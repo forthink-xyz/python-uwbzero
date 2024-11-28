@@ -23,6 +23,7 @@ from CCCRegionParams import *
 # Optional: enable Rx logs (in case of ranging errors)
 RX_LOG_ENABLE = False
 
+# the UID can get from the module, get LICENSE from : https://licenses.forthink.com.cn/
 DONGLE_UID = "d05efba6"
 DONGLE_LICENSE = "395a761af4df0850a94bc5d5a5bdaaa6387c88d1d15ae444ee5ab7f1c4d542f42e1654777b9addc1c25a0084f35f8e27e1ee5fb2c19df273cba4930d61ed675c"
 

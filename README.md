@@ -3,9 +3,12 @@
 ## 1. Introduction
 A beginner-friendly python library for uwb ranging and positioning, supports CCC and FiRa protocol.
 
+Supported Hardware: [Forthink UWB-Dongle](https://item.taobao.com/item.htm?id=858072852508)
+
 ### 1.1 Architecture
 
-- Hardware: UWB Chips Support IEEE 802.15.4z, e.g. NCJ29D5, SR150, DW3000, etc. The Forthink UWB-Dongle support NXP MAC, [Forthink-CCC-MAC](https://github.com/forthink-xyz/forthink_ccc_mac).
+- Hardware: UWB Chips Support IEEE 802.15.4z, e.g. NCJ29D5, SR150, DW3000, etc. 
+- The [Forthink UWB-Dongle](https://item.taobao.com/item.htm?id=858072852508) support NXP MAC(default), [Forthink-CCC-MAC](https://github.com/forthink-xyz/forthink_ccc_mac).
 
 - UWB MAC: support FiRa, CCC, etc, running on devices, not in the library. 
 
@@ -13,7 +16,7 @@ A beginner-friendly python library for uwb ranging and positioning, supports CCC
 
 - Middleware：UCI, FiRa, CCC and NearbyInteraction interfaces, include in this library.
 
-- Application：based on UWB MAC，for ranging, positioning and data transfer.
+- Application：based on UWB MAC，for ranging, positioning and data transfer(CCC Expand), Reverse-TDOA (comming soon).
 
 
 ## 2. Example Apps
@@ -73,7 +76,7 @@ The examples shows 1 initiator with two responder applicaton.
 ### 2.3 iOS Nearby Interface
 
 This example shows how to communation with the iPhone use the BLE, and UWB ranging with iPhone.
-The example runs on the raspberry, which BLE communication with the iPhone. Not support now.
+The example runs on the raspberry, which BLE communication with the iPhone. Not support now, coming soon.
 
 
 ## 3. drivers
@@ -94,10 +97,11 @@ The hardware driver interface to operate the UWB hardware. The UWB Dongle use th
 
 ### 4.3 NI
 
-Forthink NearbyInteraction library in python.
+Forthink NearbyInteraction library in python, to support Apple Nearby Interaction.
 
 ### 4.4 UCI
 
+The UCI Layer, to support FiRa-UCI Generic interface, support the FiRa-UCI Generic protocol.
 
 ## 5. How to use the Library 
 
@@ -117,27 +121,46 @@ The Python version : Python 3.11.3
 
 ### 5.2 set the PYTHONPATH in .env
 
-In our application, the drivers and middleware libraries already added to the .env file, which can be well supported by the Visual Studio Code default configuration.
+In our application, the drivers and middleware libraries already added to the `.env` file, which can be well supported by the Visual Studio Code default configuration.
 
 ### 5.3 run the apps
 
 Go to the `apps/`, run the application script, in the current application scripts, they all appear in pairs, one initiator and one for responder.
 
-## 6. Release log
+## 6. Q&A
 
-### (2024.10.29-v0.1.0)
+### 1. How to get the UID and LICENSE
+
+Step 1: Get the UID from the product, for example: `9bfcf8d0`.
+![UID](pic/dongle_uid.png)
+
+Step 2: Get the LICENSE from the Forthink website [https://licenses.forthink.com.cn/](https://licenses.forthink.com.cn/).
+
+Step 3: Change the UID and LICENSE in the .py app file.
+
+```python
+DONGLE_UID = "d05efb9e"  # your UID
+# LICENSE Get from the website
+DONGLE_LICENSE = "7967f9ef4eb14809123fd3c43a30e4b606208a3a960b35d9281fc09b089389300c72ee360695164646c8728c2c3da03663acb0c0bf0ea08dfcc1187fff6d59f7"
+```
+
+## 7. Release log
+
+### (2024.11.28-v0.1.0)
 - **Features**:
   - First version of the `python-uwbzero`, currently only support the Forthink UWB Dongle Hardware.
   - Support the Normal CCC 3.0 UWB MAC.
   - Support the FiRa MAC v1.3.0.
-  - Support the Forthink-CCC-MAC V1.0.0.
+  - Support the [Forthink-CCC-MAC V1.0.0](https://github.com/forthink-xyz/forthink_ccc_mac).
 - **Fixed**:
   - None
 - **Known issue**:
-  - The Dongle with the Normal UWB MAC run the ***_exp_data script will fail.
+  - The Dongle with the Normal UWB MAC run the ***_exp_data script will fail. Only the Forthink-CCC-MAC V1.0.0 support the script.
 
 
 ## 7. Contact us
 
 WebSite: https://www.forthink.com.cn
+License: https://licenses.forthink.com.cn/
 Email: dksupports@everhigh.com.cn
+Shop:  [Forthink store](https://shop224007954.taobao.com/)

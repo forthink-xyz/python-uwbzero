@@ -23,6 +23,7 @@ from FiRaRegionParams import *
 # Optional: enable Rx logs (in case of ranging errors)
 RX_LOG_ENABLE = False
 
+# the UID can get from the module, get LICENSE from : https://licenses.forthink.com.cn/
 DONGLE_UID = "d05efb9e"
 DONGLE_LICENSE = "7967f9ef4eb14809123fd3c43a30e4b606208a3a960b35d9281fc09b089389300c72ee360695164646c8728c2c3da03663acb0c0bf0ea08dfcc1187fff6d59f7"
 
